@@ -2,21 +2,23 @@
 $(document).ready(function () {
 
 
-    
-//inputEl = document.querySelector(".input");
-//let buttonEl = document.querySelector(".button");
-
 const $weatherQuery = $('#enter-city');
 const $querySubmitButton = $('#query-submit-button');
 const $clearResultsButton = $('#clear-results-button');
 
 
+const api_key = `0d00e06c2b9381d1603d8240efcc25fb`;
+let app_id = api.openweathermap.org/data/2.5/forecast?q={weatherQuery}&appid={api_key};
 
 
-const api_key = '6494a1a0481846dcba387bfc9e3a81c6';
-// let appID = "d8bd0342";
-// WHISK 
-// let API_Key =  "WeqsV4dzDqQZkiTKsnog6L3E8FdaFAlzJIan00T5itFAs7CWCU1acCq4YokSKgrR"
+let name = `Ryan`;
+
+console.log(`Hi my name is ${name}`);
+
+
+
+
+
 const queryAPI = () => {
     let queryParam = inputEl.value;
     console.log(queryParam);
@@ -41,3 +43,24 @@ const queryAPI = () => {
 buttonEl.addEventListener("click", queryAPI);
 
 });
+
+/*
+reqs
+weather conditions
+the temperature
+the humidity
+the wind speed
+the UV index
+*/
+
+
+
+/* some local storage code to reference from my planner
+$(this).find(".saveBtn").on('click', function() {
+    let inputText = inputElement.val();
+    console.log(inputText);
+    // local storage experiment
+    localStorage.setItem('slot' + currentSlot, inputText);
+    console.log(localStorage);
+})
+*/
