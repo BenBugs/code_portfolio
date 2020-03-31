@@ -2,47 +2,36 @@
 $(document).ready(function () {
 
 
-const $weatherQuery = $('#enter-city');
-const $querySubmitButton = $('#query-submit-button');
-const $clearResultsButton = $('#clear-results-button');
+    //get page elements
+    const weatherQuery = $('#enter-city').val;
+    const querySubmitButton = $('#query-submit-button');
+    const clearResultsButton = $('#clear-results-button');
 
+    //api key and query string
+    const api_key = `0d00e06c2b9381d1603d8240efcc25fb`;
+    let queryURL = api.openweathermap.org/data/2.5/forecast?q={weatherQuery}&appid={querySubmitButton};
 
-const api_key = `0d00e06c2b9381d1603d8240efcc25fb`;
-let app_id = api.openweathermap.org/data/2.5/forecast?q={weatherQuery}&appid={api_key};
-
-
-let name = `Ryan`;
-
-console.log(`Hi my name is ${name}`);
-
-
-
-
-
-const queryAPI = () => {
-    let queryParam = inputEl.value;
-    console.log(queryParam);
-    // let queryURL = `https://graph.whisk.com/v1/search?q=sandwich&type=recipe&includeIngredients=bread,meat`;
-    // let queryURL = `https://api.spoonacular.com/recipes/search?apiKey=fef941d2f3ad4ddb9c76f61cf530a4c1`;
-    let queryURL = `https://codebox-boggle-v1.p.rapidapi.com/ahdkshfkeioushid`;
-    console.log(queryURL);
-    console.log("Test")
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-        headers: {
-        },
-        success: (response) => {
-            console.log(response);
-        },
-        error: (xhr, status, error) => {
-            console.log(`status: ${status}, Error: ${error}`);
-        }
-    });
-}
-buttonEl.addEventListener("click", queryAPI);
+    //api key and query string
+    const query_api = () => {
+        let queryString = queryURL;
+        console.log(queryString);
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+            headers: {
+            },
+            success: (response) => {
+                console.log(response);
+            },
+            error: (xhr, status, error) => {
+                console.log(`status: ${status}, Error: ${error}`);
+            }
+        });
+        
+    }
 
 });
+
 
 /*
 reqs
