@@ -1,12 +1,7 @@
 /* Custom style sheet for additional cpontrol poutside of bootstrap css */
 
-.bg-weather1 {
-    background: rgb(115,164,161);
-    background: linear-gradient(180deg, rgba(115,164,161,1) 0%, rgba(135,208,213,1) 54%, rgba(188,232,235,1) 99%);
-}
-
 .bg-weather {
-    background-image: url("images/reeds.jpg");
+    background-image: url("images_weather_dashboard/cloudy_overcast.jpg");
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -14,7 +9,7 @@
 }
 
 .weather-icon {
-    background-image: url("images_weather_dashboard/sun_cloud_light_rain.svg");
+    background-image: url("images_weather_dashboard/heavy_cloud.svg");
     width: 200px;
     height: 180px;
     background-repeat: no-repeat;
@@ -43,8 +38,19 @@
     border-left: 1px solid #606060;
 }
 
+.day-first {
+    border-left: 1px solid #606060;
+}
+
 
 /*  media queries  */
+
+@media only screen and (max-width: 768px) {
+    .day-first {
+        border-left: none;
+    }
+}
+
 
 @media only screen and (max-width: 576px) {
     .form-control-custom {
