@@ -1,0 +1,12 @@
+A cookie associated with a cross-site resource at http://fontawesome.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.
+jquery.min.js:2 jQuery.Deferred exception: Cannot read property 'toLowercase' of null TypeError: Cannot read property 'toLowercase' of null
+    at HTMLDocument.<anonymous> (file:///C:/Users/benco/bootcamp/code_portfolio/weather_dashboard.js:7:32)
+    at j (https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js:2:29568)
+    at k (https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js:2:29882) undefined
+r.Deferred.exceptionHook @ jquery.min.js:2
+jquery.min.js:2 Uncaught TypeError: Cannot read property 'toLowercase' of null
+    at HTMLDocument.<anonymous> (weather_dashboard.js:7)
+    at j (jquery.min.js:2)
+    at k (jquery.min.js:2)
+DevTools failed to parse SourceMap: file:///C:/Users/benco/bootcamp/code_portfolio/js/popper.min.js.map
+DevTools failed to parse SourceMap: file:///C:/Users/benco/bootcamp/code_portfolio/js/bootstrap.min.js.map

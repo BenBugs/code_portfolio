@@ -3,12 +3,13 @@ $(document).ready(function () {
 
 
     //api key and query string
-    let cityQuery = document.querySelector(".input").toLowerCase;
+    let cityQuery = document.getElementById("#enter-city").value;
     const api_key = `0d00e06c2b9381d1603d8240efcc25fb`; 
     let query_url = `https://api.openweathermap.org/data/2.5/weather?q=${cityQuery}&appid=${api_key}&units=metric`;
 
 
     const api_call = $('#query-submit-button').click(function() { 
+        console.log(query_url);
         $.ajax({
             url: query_url,
             method: "GET",
@@ -21,7 +22,6 @@ $(document).ready(function () {
                 console.log(`status: ${status}, Error: ${error}`);
             }
         });
-        console.log(api_call);
     });
 
 
