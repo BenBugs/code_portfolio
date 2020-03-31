@@ -4,12 +4,10 @@ $(document).ready(function () {
 
     //get page elements
     const weatherQuery = $('#enter-city').val;
-    const querySubmitButton = $('#query-submit-button');
-    const clearResultsButton = $('#clear-results-button');
 
     //api key and query string
     const api_key = `0d00e06c2b9381d1603d8240efcc25fb`;
-    let queryURL = api.openweathermap.org/data/2.5/forecast?q={weatherQuery}&appid={querySubmitButton};
+    let queryURL = api.openweathermap.org/data/2.5/forecast?q={weatherQuery}&appid={api_key};
 
     //api key and query string
     const query_api = () => {
@@ -29,6 +27,14 @@ $(document).ready(function () {
         });
         
     }
+
+    $('#query-submit-button').click(function() { 
+        let api_call = query_api();
+        console.log(api_call);
+    });
+
+
+    //$('#clear-results-button');
 
 });
 
