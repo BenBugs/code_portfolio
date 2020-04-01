@@ -34,6 +34,10 @@
     background-position: center;
 }
 
+.wind {
+    border-left: 1px solid #606060;
+}
+
 .day {
     border-left: 1px solid #606060;
 }
@@ -42,12 +46,66 @@
     border-left: 1px solid #606060;
 }
 
+#day1, #day2, #day3, #day4, #day5 {
+    font-size: 17px;
+    padding-top: 5px;
+}
+
+#temp1, #temp2, #temp3, #temp4, #temp5 {
+    font-size: 19px;
+    padding-top: px;
+}
+
+#hum1, #hum2, #hum3, #hum4, #hum5 {
+    font-size: 13px;
+    padding-top: 7px;
+}
+
+#temp {
+    margin-top: 14px;
+}
+
+#wind-icon {
+    margin-top: 20px;
+}
+
+#day-of-week {
+    margin-top: 29px;
+}
+
+#wind-index {
+    margin-top: 29px;
+}
+
+
 
 /*  media queries  */
 
 @media only screen and (max-width: 768px) {
     .day-first {
         border-left: none;
+    }
+
+    #day1, #day2, #day3, #day4, #day5 {
+        margin-top: 50px;
+        font-size: 20px;
+    }
+
+    #hum1, #hum2, #hum3, #hum4, #hum5 {
+        font-size: 16px;
+        padding-top: 10px;
+    }
+
+    .day {
+        border-left: none;
+    }
+
+    .day-first {
+        border-left: none;
+    }
+
+    .five-day-icon {
+        height: 90px;
     }
 }
 
@@ -60,5 +118,7 @@
     .button-control-custom {
         width: 100%;
     }
+
+
 }
 
