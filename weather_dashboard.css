@@ -1,15 +1,15 @@
 /* Custom style sheet for additional cpontrol poutside of bootstrap css */
 
 .bg-weather {
-    background-image: url("images_weather_dashboard/cloudy_overcast.jpg");
+    background-image: url("images_weather_dashboard/calm.jpg");
+    background-color: #606060;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: bottom center;
 }
 
 .weather-icon {
-    background-image: url("images_weather_dashboard/heavy_cloud.svg");
     width: 200px;
     height: 180px;
     background-repeat: no-repeat;
@@ -75,6 +75,14 @@
 
 #wind-index {
     margin-top: 29px;
+}
+
+.button-control-custom {
+    text-transform: capitalize;
+}
+
+#city-main {
+    text-transform: capitalize;
 }
 
 

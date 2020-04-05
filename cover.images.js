@@ -14,7 +14,6 @@ const randomImage = () => {
     coverImages[3] = "images/windows.jpg";
     coverImages[4] = "images/lego.jpg";
     coverImages[5] = "images/forest.jpg";
-    coverImages[5] = "images/beach.jpg";
 
     const newImageIndex = Math.floor(Math.random() * coverImages.length);
     console.log(newImageIndex);
@@ -31,8 +30,8 @@ const randomImage = () => {
     creditImages[4] = "https://bit.ly/3dF4TJI";
     creditImages[4] = "https://bit.ly/2wCA204";
  
-    const matchImage = coverImages.slice()[newImageIndex];
-    console.log(matchImage);
+   // const matchImage = coverImages.slice()[newImageIndex];
+   // console.log(matchImage);
 
 
     const newImage = coverImages[newImageIndex];

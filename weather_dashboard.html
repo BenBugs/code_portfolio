@@ -15,7 +15,6 @@
 </head>
 
 
-
 <body class="body-color">
 
     <header class="sticky-header shadow-sm">
@@ -112,8 +111,9 @@
                     <div class="row mt-3 mr-3 ml-3">
                         <div class="col-sm-5 col-md-6 col-lg-5 col-xl-4 p-2 mb-3 pr-sm-3">
                             <form>
-                            <input type="text" class="form-control form-control-lg form-control-custom" id="city" placeholder="Enter city" name="trouble">
-                        </form>
+                                <input type="text" class="form-control form-control-lg form-control-custom" id="city"
+                                    placeholder="Enter city" name="trouble">
+                            </form>
                         </div>
                         <div class="col-sm-2 col-md-2 col-lg-1 col-xl-1 p-2 text-center">
                             <a href="#" button type="button" id="query-submit-button"
@@ -127,34 +127,24 @@
 
 
                         <div class="col-12 d-flex flex-row flex-wrap p-2" id="new-button-row">
-                            <div class="mb-2 mr-sm-3 button-control-custom"><a href="#" button type="button"
-                                    class="btn  btn-outline-light button-control-custom" id="display-city">Atlanta</a></div>
-                            <div class="mb-2 mr-sm-3 button-control-custom"><a href="#" button type="button"
-                                    class="btn  btn-outline-light button-control-custom">London</a></div>
-                            <div class="mb-2 mr-sm-3 button-control-custom"><a href="#" button type="button"
-                                    class="btn  btn-outline-light button-control-custom">Adelaide</a></div>
-                            <div class="mb-2 mr-sm-3 button-control-custom"><a href="#" button type="button"
-                                    class="btn  btn-outline-light button-control-custom">New York</a></div>
+                            <!-- dynamically generated buttons go here -->
                         </div>
                     </div>
 
 
                     <div class="row m-2">
                         <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                            <h5
-                                class="text-white text-center text-sm-center text-md-left text-lg-left text-lg-left display-4">
-                                Atlanta
+                            <h5 class="text-white text-center text-sm-center text-md-left text-lg-left text-lg-left display-4" id="city-main">
                             </h5>
                         </div>
 
-                        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 d-flex justify-content-center">
+                        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 d-flex justify-content-center" id="todays-weather-icon">
                             <div class="weather-icon"></div>
                         </div>
 
                         <div class="col-md-4 col-lg-4 col-xl-4 time">
                             <h6
-                                class="text-white text-center text-sm-right text-md-right text-lg-right text-lg-right display-4">
-                                17.28
+                                class="text-white text-center text-sm-right text-md-right text-lg-right text-lg-right display-4" id="currentTime">
                             </h6>
                         </div>
                     </div>
@@ -165,12 +155,11 @@
 
             <!-- end of colored container -->
 
-
             <div class="row bg-white shadow">
 
                 <div class="col-sm-12 col-md-5 col-lg-5 col-xl-5 d-flex flex-row mt-4 mb-4">
                     <div class="col">
-                        <h5 class="display-3 text-dark pl-2 text-center" id="temp">33°</h5>
+                        <h5 class="display-3 text-dark pl-2 text-center" id="temp"></h5>
                         <h5 class="text-dark text-center" id="day-of-week">Monday 16</h5>
                     </div>
                     <div class="col wind">
@@ -226,15 +215,15 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <!-- jQuery from jQuery cdn link -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <!-- Bootstrap tooltips -->
+    <!-- bootstrap tooltips -->
     <script type="text/javascript" src="js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
+    <!-- bootstrap core JavaScript -->
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
-    <!-- Your custom scripts (optional) -->
+    <!-- custom script -->
     <script type="text/javascript" src="weather_dashboard.js"></script>
-
+    
 
     <!-- footer -->
 
