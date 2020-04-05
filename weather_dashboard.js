@@ -135,7 +135,7 @@ $(document).ready(function () {
                     "Few clouds": "images_weather_dashboard/light_cloud.jpg",
                     "Scattered clouds": "images_weather_dashboard/scattered_cloud.jpg",
                     "Broken clouds": "images_weather_dashboard/scattered_cloud.jpg",
-                    "Drizzle": "images_weather_dashboard/sun_cloud_light_rain.jpg",
+                    "Drizzle": "images_weather_dashboard/drizzle.jpg",
                     "Rain": "images_weather_dashboard/moderate_rain.jpg",
                     "Snow": "images_weather_dashboard/light_snow.jpg",
                     "Mist": "images_weather_dashboard/mist.jpg",
