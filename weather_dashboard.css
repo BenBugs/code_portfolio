@@ -1,8 +1,7 @@
 /* Custom style sheet for additional cpontrol poutside of bootstrap css */
 
 .bg-weather {
-    background-image: url("images_weather_dashboard/calm.jpg");
-    background-color: #606060;
+    background-color: #fff;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;

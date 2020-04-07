@@ -49,8 +49,9 @@ $(document).ready(function () {
 
 let loadCityName = ['woodstock' , 'dundee' , 'new york' , 'wuhan' , 'london' ,  'dublin' ,  'bangkok' ,  'mogadishu' ,  'mombasa' ,  'Kolkata' ,  'phnom penh' , 'seattle'];
 let index = Math.floor(Math.random() * loadCityName.length);
-console.log(index);
-//getWeather(cityName);
+let cityName = loadCityName[index];
+console.log(cityName);
+getWeather(cityName);
 
  
 
