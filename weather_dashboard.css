@@ -19,10 +19,11 @@
 .wind-icon {
     background-image: url("images_weather_dashboard/sun_cloud_light_rain_dark.svg");
     width: 100%;
-    height: 80px;
+    height: 100px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    margin-top: 10px;
 }
 
 .five-day-icon {
@@ -65,16 +66,12 @@
     margin-top: 14px;
 }
 
-#wind-icon {
-    margin-top: 20px;
-}
-
 #day-of-week {
     margin-top: 29px;
 }
 
 #wind-index {
-    margin-top: 29px;
+    margin-top: 18px;
 }
 
 .button-control-custom {

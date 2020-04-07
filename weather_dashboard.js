@@ -44,6 +44,17 @@ $(document).ready(function () {
     showTime();
 
 
+    // load random whether location
+
+
+let loadCityName = ['woodstock' , 'dundee' , 'new york' , 'wuhan' , 'london' ,  'dublin' ,  'bangkok' ,  'mogadishu' ,  'mombasa' ,  'Kolkata' ,  'phnom penh' , 'seattle'];
+let index = Math.floor(Math.random() * loadCityName.length);
+console.log(index);
+//getWeather(cityName);
+
+ 
+
+
     // get user input clicks
 
     $('#query-submit-button').click(function () {
@@ -99,7 +110,7 @@ $(document).ready(function () {
                     "Drizzle": "images_weather_dashboard/sun_cloud_light_rain.svg",
                     "Rain": "images_weather_dashboard/rain.svg",
                     "Snow": "images_weather_dashboard/snow.svg",
-                    "Mist": "images_weather_dashboard/heavy_cloud.svg",
+                    "Mist": "images_weather_dashboard/mist.svg",
                     "Clear": "images_weather_dashboard/sun.svg",
                     "Thunderstorms": "images_weather_dashboard/lightning",
                     "Haze": "images_weather_dashboard/sun_cloud.svg",
@@ -114,17 +125,19 @@ $(document).ready(function () {
                     console.log('fail');
                 }
 
+                // set city name
+                $('#city-main').text(cityName);
+                $('#city-main').css("text-white text-center text-sm-center text-md-left text-lg-left text-lg-left display-4", cityName);
+
                 // get url out of iconObject - main weather icon
                 const iconUrl = iconObject[todayIcon];
-                console.log(iconUrl)
+                console.log(iconUrl);
                 $('.weather-icon').attr('src'); ///this bastard
                 $('.weather-icon').css('background-image', "url(" + iconUrl + ")");
+
                 // update wind icon
                 $('.wind-icon').attr('src');
                 $('.wind-icon').css('background-image', "url(" + iconUrl + ")");
-
-                $('#city-main').text(cityName);
-                $('#city-main').css("text-white text-center text-sm-center text-md-left text-lg-left text-lg-left display-4", cityName);
 
                 const todayTempDec = todayTemp.toFixed(0);
                 $('#temp').text(todayTempDec + '°');
@@ -146,9 +159,37 @@ $(document).ready(function () {
                 };
 
                 const bgUrl = bgObject[todayIcon];
-                console.log(bgUrl)
+                console.log(bgUrl);
                 $('.bg-weather').attr('src');
                 $('.bg-weather').css('background-image', "url(" + bgUrl + ")");
+
+                //wind icons
+                let windObject = {
+                    "Few clouds": "images_weather_dashboard/dark/sun_cloud_dark.svg",
+                    "Scattered clouds": "images_weather_dashboard/dark/sun_cloud_dark.svg",
+                    "Broken clouds": "images_weather_dashboard/dark/sun_cloud_dark.svg",
+                    "Drizzle": "images_weather_dashboard/dark/sun_cloud_light_rain_dark.svg",
+                    "Rain": "images_weather_dashboard/dark/rain_dark.svg",
+                    "Snow": "images_weather_dashboard/dark/snow_dark.svg",
+                    "Mist": "images_weather_dashboard/dark/mist_dark.svg",
+                    "Clear": "images_weather_dashboard/dark/sun_dark.svg",
+                    "Thunderstorms": "images_weather_dashboard/dark/lightning_dark.svg",
+                    "Haze": "images_weather_dashboard/dark/sun_cloud_dark.svg",
+                    "Clouds": "images_weather_dashboard/dark/heavy_cloud_dark.svg"
+                };
+
+                const windUrl = windObject[todayIcon];
+                console.log(windUrl);
+                $('.wind-icon').attr('src');
+                $('.wind-icon').css('background-image', "url(" + windUrl + ")");
+
+                //wind speed and angle
+                const speed = todayWindSpeed.toFixed(0);
+                const degree = todayWindDeg;
+                console.log(degree);
+                $('#wind-index').text(speed + 'mph / ' + degree);
+
+
 
             })
             // handle all ajax errors

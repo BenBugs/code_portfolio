@@ -14,6 +14,7 @@ const randomImage = () => {
     coverImages[3] = "images/windows.jpg";
     coverImages[4] = "images/lego.jpg";
     coverImages[5] = "images/forest.jpg";
+    coverImages[6] = "images/dog.jpg";
 
     const newImageIndex = Math.floor(Math.random() * coverImages.length);
     console.log(newImageIndex);
