@@ -16,7 +16,7 @@ $(document).ready(function () {
         let second = date.getSeconds();
 
         if (hour == 0) {
-            h = 12;
+            hour = 12;
         }
 
         if (hour > 12) {
@@ -47,7 +47,7 @@ $(document).ready(function () {
     // load random whether location
 
 
-let loadCityName = ['woodstock' , 'dundee' , 'new york' , 'wuhan' , 'london' ,  'dublin' ,  'bangkok' ,  'mogadishu' ,  'mombasa' ,  'Kolkata' ,  'phnom penh' , 'seattle'];
+let loadCityName = ['woodstock' , 'dundee' , 'new york' , 'wuhan' ,  'anchorage' ,   'hobart' ,   'tehran' ,   'chiang mai' ,   'islamabad' ,  'london' ,  'dublin' ,  'bangkok' ,  'mogadishu' ,  'mombasa' ,  'calcutta' ,  'manaus' ,   'phnom penh' , 'seattle'];
 let index = Math.floor(Math.random() * loadCityName.length);
 let cityName = loadCityName[index];
 console.log(cityName);
@@ -113,8 +113,8 @@ getWeather(cityName);
                     "Snow": "images_weather_dashboard/snow.svg",
                     "Mist": "images_weather_dashboard/mist.svg",
                     "Clear": "images_weather_dashboard/sun.svg",
-                    "Thunderstorms": "images_weather_dashboard/lightning",
-                    "Haze": "images_weather_dashboard/sun_cloud.svg",
+                    "Thunderstorm": "images_weather_dashboard/lightning",
+                    "Haze": "images_weather_dashboard/mist.svg",
                     "Clouds": "images_weather_dashboard/heavy_cloud.svg"
                 };
 
@@ -154,7 +154,7 @@ getWeather(cityName);
                     "Snow": "images_weather_dashboard/light_snow.jpg",
                     "Mist": "images_weather_dashboard/mist.jpg",
                     "Clear": "images_weather_dashboard/clear_sky.jpg",
-                    "Thunderstorms": "images_weather_dashboard/thunder.jpg",
+                    "Thunderstorm": "images_weather_dashboard/thunder.jpg",
                     "Haze": "images_weather_dashboard/haze.jpg",
                     "Clouds": "images_weather_dashboard/broken_cloud.jpg"
                 };
@@ -174,8 +174,8 @@ getWeather(cityName);
                     "Snow": "images_weather_dashboard/dark/snow_dark.svg",
                     "Mist": "images_weather_dashboard/dark/mist_dark.svg",
                     "Clear": "images_weather_dashboard/dark/sun_dark.svg",
-                    "Thunderstorms": "images_weather_dashboard/dark/lightning_dark.svg",
-                    "Haze": "images_weather_dashboard/dark/sun_cloud_dark.svg",
+                    "Thunderstorm": "images_weather_dashboard/dark/lightning_dark.svg",
+                    "Haze": "images_weather_dashboard/dark/mist_dark.svg",
                     "Clouds": "images_weather_dashboard/dark/heavy_cloud_dark.svg"
                 };
 
@@ -184,13 +184,18 @@ getWeather(cityName);
                 $('.wind-icon').attr('src');
                 $('.wind-icon').css('background-image', "url(" + windUrl + ")");
 
-                //wind speed and angle
+                //wind speed 
                 const speed = todayWindSpeed.toFixed(0);
-                const degree = todayWindDeg;
-                console.log(degree);
+
+                //wind ang
+                let degree = todayWindDeg;
+                if (degree >= 1 && degree <= 360) { 
+                    degree = todayWindDeg;
+                } else {
+                    degree = '0';
+                }
+                
                 $('#wind-index').text(speed + 'mph / ' + degree);
-
-
 
             })
             // handle all ajax errors
@@ -213,7 +218,7 @@ getWeather(cityName);
         });
 
         let wrapper = $("<div/>", {
-            class: "mb-2 mr-sm-3 button-control-custom",
+            class: "mb-2 mr-sm-3 button-control-custom pb-2",
         });
 
         wrapper.append(cityButton);
@@ -235,27 +240,29 @@ getWeather(cityName);
 
 
 
+/*
+
+           // Get forecast data here
+            https://openweathermap.org/forecast5
+            return $.ajax({
+                url: `//api.openweathermap.org/forecast...?q=${cityName}`,
+                method: "GET",
+            })
 
 
-            // // Get forecast data here.
-            // // https://openweathermap.org/forecast5
-            // return $.ajax({
-            //     url: `//api.openweathermap.org/forecast...?q=${cityName}`,
-            //     method: "GET",
-            // })
+                .then(response => {
+                    // forecast response
+                    console.log(response);
 
-
-            //     .then(response => {
-            //         // forecast response
-            //         console.log(response);
-
-            //         const tile1 = createForecastTile(response.list[0]);
-            //         const tile2 = createForecastTile(response.list[1]);
-            //         const tile3 = createForecastTile(response.list[2]);
-            //         const tile4 = createForecastTile(response.list[3]);
-            //         const tile5 = createForecastTile(response.list[4]);
+                    const tile1 = createForecastTile(response.list[0]);
+                    const tile2 = createForecastTile(response.list[1]);
+                    const tile3 = createForecastTile(response.list[2]);
+                    const tile4 = createForecastTile(response.list[3]);
+                    const tile5 = createForecastTile(response.list[4]);
 
             //         // TODO add tiles to div list.
+
+
 
             //         // Get UV data.
             //         // https://openweathermap.org/api/uvi
@@ -265,6 +272,8 @@ getWeather(cityName);
             //         });
             //     })
 
+
+*/
 
 
 
