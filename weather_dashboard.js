@@ -38,22 +38,42 @@ $(document).ready(function () {
         let currentTime = `${hour}:${minute}:${second}`;
         $("#currentTime").text(currentTime);
 
+        // this increments the clock live
         setTimeout(showTime, 1000);
     }
 
+    // day of week 
+    function weekDays() {
+    const date = new Date();
+    const day = date.getDay();
+    let weekDays = ['Monday' , 'Tuesday' , 'Wednesday' , 'Thursday' , 'Friday' , 'Saturday' , 'Sunday'];
+    const setDay = weekDays[day];
+    const dayDate = date.getDate();
+
+    let todaysDate = `${setDay} ${dayDate}`;
+    $('#day-of-week').text(todaysDate);
+
+
+    weekDays = ['Mon' , 'Tue' , 'Wed' , 'Thu' , 'Fri' , 'Sat' , 'Sun']; 
+    const today = weekDays[day]; // connect this to tiles
+
+    console.log(today);
+}
+
+
+    // call date and time functions
     showTime();
+    weekDays();
 
 
     // load random whether location
+    let loadCityName = ['woodstock', 'dundee', 'new york', 'wuhan', 'anchorage', 'hobart', 'tehran', 'chiang mai', 'islamabad', 'london', 'dublin', 'bangkok', 'mogadishu', 'mombasa', 'calcutta', 'manaus', 'phnom penh', 'seattle'];
+    let index = Math.floor(Math.random() * loadCityName.length);
+    let cityName = loadCityName[index];
+    console.log(cityName);
+    getWeather(cityName);
 
 
-let loadCityName = ['woodstock' , 'dundee' , 'new york' , 'wuhan' ,  'anchorage' ,   'hobart' ,   'tehran' ,   'chiang mai' ,   'islamabad' ,  'london' ,  'dublin' ,  'bangkok' ,  'mogadishu' ,  'mombasa' ,  'calcutta' ,  'manaus' ,   'phnom penh' , 'seattle'];
-let index = Math.floor(Math.random() * loadCityName.length);
-let cityName = loadCityName[index];
-console.log(cityName);
-getWeather(cityName);
-
- 
 
 
     // get user input clicks
@@ -75,7 +95,6 @@ getWeather(cityName);
         };
     });
 
-    //////////////////  problem function here
 
     function getWeather(cityName) {
         //api key and query string
@@ -86,9 +105,10 @@ getWeather(cityName);
             url: queryUrl,
             method: "GET",
         })
+
             .then(response => {
                 // this will happen eventually
-                //console.log(response);
+                // console.log(response);
                 // set city name
                 const todayCity = response['name'];
                 console.log(todayCity);
@@ -115,7 +135,8 @@ getWeather(cityName);
                     "Clear": "images_weather_dashboard/sun.svg",
                     "Thunderstorm": "images_weather_dashboard/lightning",
                     "Haze": "images_weather_dashboard/mist.svg",
-                    "Clouds": "images_weather_dashboard/heavy_cloud.svg"
+                    "Clouds": "images_weather_dashboard/heavy_cloud.svg",
+                    "Fog": "images_weather_dashboard/mist.svg"
                 };
 
 
@@ -156,6 +177,7 @@ getWeather(cityName);
                     "Clear": "images_weather_dashboard/clear_sky.jpg",
                     "Thunderstorm": "images_weather_dashboard/thunder.jpg",
                     "Haze": "images_weather_dashboard/haze.jpg",
+                    "Fog": "images_weather_dashboard/fog.jpg",
                     "Clouds": "images_weather_dashboard/broken_cloud.jpg"
                 };
 
@@ -176,7 +198,8 @@ getWeather(cityName);
                     "Clear": "images_weather_dashboard/dark/sun_dark.svg",
                     "Thunderstorm": "images_weather_dashboard/dark/lightning_dark.svg",
                     "Haze": "images_weather_dashboard/dark/mist_dark.svg",
-                    "Clouds": "images_weather_dashboard/dark/heavy_cloud_dark.svg"
+                    "Clouds": "images_weather_dashboard/dark/heavy_cloud_dark.svg",
+                    "Fog": "images_weather_dashboard/mist.svg"
                 };
 
                 const windUrl = windObject[todayIcon];
@@ -189,12 +212,12 @@ getWeather(cityName);
 
                 //wind ang
                 let degree = todayWindDeg;
-                if (degree >= 1 && degree <= 360) { 
+                if (degree >= 1 && degree <= 360) {
                     degree = todayWindDeg;
                 } else {
                     degree = '0';
                 }
-                
+
                 $('#wind-index').text(speed + 'mph / ' + degree);
 
             })
