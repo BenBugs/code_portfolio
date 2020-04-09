@@ -7,63 +7,37 @@ let v = "strict mode script!";
 
 $(document).ready(function () {
 
-    // running clock
+    // date and time from Luxon
+    function clock() {
+        let DateTime = luxon.DateTime;
+        let dt = DateTime.local(); // this is now!
+        //get params
+        let dayLong = DateTime.local().weekdayLong;
+        let dayShort = DateTime.local().weekdayShort;
+        let dayOfMonth = DateTime.local().day;
+        let hour = DateTime.local().hour;
+        let minute = DateTime.local().minute;
+        let second = DateTime.local().second;
 
-    function showTime() {
-        let date = new Date();
-        let hour = date.getHours();
-        let minute = date.getMinutes();
-        let second = date.getSeconds();
-
-        if (hour == 0) {
-            hour = 12;
-        }
-
-        if (hour > 12) {
-            hour = hour - 12;
-        }
-
-        if (hour < 10) {
-            hour = '0' + hour;
-        }
-
-        if (minute < 10) {
-            minute = '0' + minute;
-        }
-
-        if (second < 10) {
-            second = '0' + second;
-        }
-
+        // output time to page
         let currentTime = `${hour}:${minute}:${second}`;
         $("#currentTime").text(currentTime);
 
         // this increments the clock live
-        setTimeout(showTime, 1000);
+        setTimeout(clock, 1000);
+
+        // set the day and date ont he page
+        let todaysDate = `${dayLong} ${dayOfMonth}`;
+        $('#day-of-week').text(todaysDate);
+
+        // pass the day of week to tile function
+        //buildTile(dayShort);
+
     }
 
-    // day of week 
-    function weekDays() {
-    const date = new Date();
-    const day = date.getDay();
-    let weekDays = ['Monday' , 'Tuesday' , 'Wednesday' , 'Thursday' , 'Friday' , 'Saturday' , 'Sunday'];
-    const setDay = weekDays[day];
-    const dayDate = date.getDate();
-
-    let todaysDate = `${setDay} ${dayDate}`;
-    $('#day-of-week').text(todaysDate);
+    clock();
 
 
-    weekDays = ['Mon' , 'Tue' , 'Wed' , 'Thu' , 'Fri' , 'Sat' , 'Sun']; 
-    const today = weekDays[day]; // connect this to tiles
-
-    console.log(today);
-}
-
-
-    // call date and time functions
-    showTime();
-    weekDays();
 
 
     // load random whether location
@@ -108,7 +82,7 @@ $(document).ready(function () {
 
             .then(response => {
                 // this will happen eventually
-                // console.log(response);
+                console.log(response);
                 // set city name
                 const todayCity = response['name'];
                 console.log(todayCity);
@@ -226,7 +200,6 @@ $(document).ready(function () {
                 console.log(error);
             })
     };
-
 
 
     // create location buttons
