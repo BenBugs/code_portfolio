@@ -7,10 +7,12 @@ let v = "strict mode script!";
 
 $(document).ready(function () {
 
+
     // date and time from Luxon
     function clock() {
         let DateTime = luxon.DateTime;
         let dt = DateTime.local(); // this is now!
+        console.log(dt)
         //get params
         let dayLong = DateTime.local().weekdayLong;
         let dayShort = DateTime.local().weekdayShort;
@@ -19,24 +21,54 @@ $(document).ready(function () {
         let minute = DateTime.local().minute;
         let second = DateTime.local().second;
 
+        //format clock output
+        if (hour == 0) {
+            hour = 12;
+        }
+    
+        if (hour > 12) {
+            hour = hour - 12;
+        }
+    
+        if (hour < 10) {
+            hour = '0' + hour;
+        }
+    
+        if (minute < 10) {
+            minute = '0' + minute;
+        }
+
+        if (second < 10) {
+            second = '0' + second;
+        }
+        
         // output time to page
         let currentTime = `${hour}:${minute}:${second}`;
         $("#currentTime").text(currentTime);
-
-        // this increments the clock live
-        setTimeout(clock, 1000);
 
         // set the day and date ont he page
         let todaysDate = `${dayLong} ${dayOfMonth}`;
         $('#day-of-week').text(todaysDate);
 
-        // pass the day of week to tile function
-        //buildTile(dayShort);
+        // this increments the clock live
+        let controlClock = setTimeout(clock, 1000);
+        console.log(controlClock)
+        stopClock(controlClock);
 
+        //pass the day of week to tile function
+        //buildTile(dayShort);
     }
 
     clock();
+    
 
+function stopClock(controlClock) {
+    if (controlClock > 136) {
+    clearTimeout(controlClock);
+    };
+};
+
+stopClock();
 
 
 
@@ -221,17 +253,6 @@ $(document).ready(function () {
         $('#new-button-row').append(wrapper);
     }
 
-
-
-
-
-    //function createForecastTile(data) {
-    // TODO fill this in.
-    // Something like createWeatherButton().
-    // }
-
-
-
 });
 
 
@@ -270,6 +291,15 @@ $(document).ready(function () {
 
 
 */
+
+
+
+
+    //function createForecastTile(data) {
+    // TODO fill this in.
+    // Something like createWeatherButton().
+    // }
+
 
 
 
