@@ -11,29 +11,49 @@ $(document).ready(function () {
     // date and time from Luxon
     function clock() {
         let DateTime = luxon.DateTime;
-        let dt = DateTime.local(); // this is now!
-        console.log(dt)
+
         //get params
         let dayLong = DateTime.local().weekdayLong;
-        let dayShort = DateTime.local().weekdayShort;
         let dayOfMonth = DateTime.local().day;
         let hour = DateTime.local().hour;
         let minute = DateTime.local().minute;
         let second = DateTime.local().second;
 
+        // forecast dates
+        let today = DateTime.local(); // this is now!
+        let day2 = DateTime.local().plus({ days: 1 });
+        let day3 = DateTime.local().plus({ days: 2 });
+        let day4 = DateTime.local().plus({ days: 3 });
+        let day5 = DateTime.local().plus({ days: 4 });
+
+        //days for forecast
+        let forecastToday = today.weekdayShort;
+        let forecastDay2 = day2.weekdayShort;
+        let forecastDay3 = day3.weekdayShort;
+        let forecastDay4 = day4.weekdayShort;
+        let forecastDay5 = day5.weekdayShort;
+
+        //set the day on the forecast tiles
+        $('#day1').text(forecastToday);
+        $('#day2').text(forecastDay2);
+        $('#day3').text(forecastDay3);
+        $('#day4').text(forecastDay4);
+        $('#day5').text(forecastDay5);
+
+
         //format clock output
         if (hour == 0) {
             hour = 12;
         }
-    
+
         if (hour > 12) {
             hour = hour - 12;
         }
-    
+
         if (hour < 10) {
             hour = '0' + hour;
         }
-    
+
         if (minute < 10) {
             minute = '0' + minute;
         }
@@ -41,36 +61,36 @@ $(document).ready(function () {
         if (second < 10) {
             second = '0' + second;
         }
-        
+
         // output time to page
         let currentTime = `${hour}:${minute}:${second}`;
         $("#currentTime").text(currentTime);
 
-        // set the day and date ont he page
+        // set the day and date on the page
         let todaysDate = `${dayLong} ${dayOfMonth}`;
         $('#day-of-week').text(todaysDate);
 
+
         // this increments the clock live
-        let controlClock = setTimeout(clock, 1000);
+        /*let controlClock = setTimeout(clock, 1000);
         console.log(controlClock)
-        stopClock(controlClock);
+        stopClock(controlClock);*/
 
         //pass the day of week to tile function
         //buildTile(dayShort);
     }
 
     clock();
-    
 
-function stopClock(controlClock) {
-    if (controlClock > 136) {
-    clearTimeout(controlClock);
+    /*
+    function stopClock(controlClock) {
+        if (controlClock > 256) {
+        clearTimeout(controlClock);
+        };
     };
-};
-
-stopClock();
-
-
+    
+    stopClock();
+    */
 
     // load random whether location
     let loadCityName = ['woodstock', 'dundee', 'new york', 'wuhan', 'anchorage', 'hobart', 'tehran', 'chiang mai', 'islamabad', 'london', 'dublin', 'bangkok', 'mogadishu', 'mombasa', 'calcutta', 'manaus', 'phnom penh', 'seattle'];
@@ -78,6 +98,7 @@ stopClock();
     let cityName = loadCityName[index];
     console.log(cityName);
     getWeather(cityName);
+    getForecast(cityName);
 
 
 
@@ -88,6 +109,7 @@ stopClock();
         let cityName = $("#city").val().toLowerCase();
         console.log(cityName);
         getWeather(cityName);
+        getForecast(cityName);
         createWeatherButton(cityName);
     });
 
@@ -97,6 +119,7 @@ stopClock();
             event.preventDefault();
             console.log(cityName);
             getWeather(cityName);
+            getForecast(cityName);
             createWeatherButton(cityName);
         };
     });
@@ -106,7 +129,7 @@ stopClock();
         //api key and query string
         const apiKey = `0d00e06c2b9381d1603d8240efcc25fb`;
         let queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-        // Get current weather.
+        // Get current weather
         $.ajax({
             url: queryUrl,
             method: "GET",
@@ -255,50 +278,73 @@ stopClock();
 
 });
 
+function getForecast(cityName) {
+    //api key and query string
+    const apiKey = `0d00e06c2b9381d1603d8240efcc25fb`;
+    let queryUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
+
+    // test key  https://api.openweathermap.org/data/2.5/forecast?q=london&appid=0d00e06c2b9381d1603d8240efcc25fb&units=metric
+
+    // Get forecast
+    $.ajax({
+        url: queryUrl,
+        method: "GET",
+    })
+
+        .then(response => {
+            console.log(response);
+
+            let forecastArr = (response.list);
+            console.log(forecastArr);
+
+            let i;
+
+            for (i = 0; i < 4; i++) {
+            const buildTileIcon = response.list[i]['weather'][0]['main'];
+            console.log(buildTileIcon);
+            buildTile(buildTileIcon);
+            const buildTileTemp = response.list[i]['main']['temp'];
+            console.log(buildTileTemp);
+            const buildTileHumidity = response.list[i]['main']['humidity'];
+            console.log(buildTileHumidity);
+            }
+
+                        // create location buttons
+    function buildTile(response) {
+
+        //wind icons
+        let forecastObject = {
+            "Few clouds": "images_weather_dashboard/dark/sun_cloud_dark.svg",
+            "Scattered clouds": "images_weather_dashboard/dark/sun_cloud_dark.svg",
+            "Broken clouds": "images_weather_dashboard/dark/sun_cloud_dark.svg",
+            "Drizzle": "images_weather_dashboard/dark/sun_cloud_light_rain_dark.svg",
+            "Rain": "images_weather_dashboard/dark/rain_dark.svg",
+            "Snow": "images_weather_dashboard/dark/snow_dark.svg",
+            "Mist": "images_weather_dashboard/dark/mist_dark.svg",
+            "Clear": "images_weather_dashboard/dark/sun_dark.svg",
+            "Thunderstorm": "images_weather_dashboard/dark/lightning_dark.svg",
+            "Haze": "images_weather_dashboard/dark/mist_dark.svg",
+            "Clouds": "images_weather_dashboard/dark/heavy_cloud_dark.svg",
+            "Fog": "images_weather_dashboard/mist.svg"
+        };
+
+        let icon = forecastObject[response];
+        console.log(icon);
+        let temp = buildTileTemp;
+        let humidty = buildTileHumidity;
+        $('.wind-icon').attr('src');
+        // $('.wind-icon').css('background-image', "url(" + windUrl + ")");
+};
 
 
-/*
 
-           // Get forecast data here
-            https://openweathermap.org/forecast5
-            return $.ajax({
-                url: `//api.openweathermap.org/forecast...?q=${cityName}`,
-                method: "GET",
-            })
+        })
+        // handle all ajax errors
+        .catch(error => {
+            console.log(error);
+        })
 
-
-                .then(response => {
-                    // forecast response
-                    console.log(response);
-
-                    const tile1 = createForecastTile(response.list[0]);
-                    const tile2 = createForecastTile(response.list[1]);
-                    const tile3 = createForecastTile(response.list[2]);
-                    const tile4 = createForecastTile(response.list[3]);
-                    const tile5 = createForecastTile(response.list[4]);
-
-            //         // TODO add tiles to div list.
-
-
-
-            //         // Get UV data.
-            //         // https://openweathermap.org/api/uvi
-            //         return $.ajax({
-            //             url: `//api.openweathermap.org/uv...?lat=${response.city.coord.lat}&lon=${repsonse.city.coord.lon}`,
-            //             method: "GET",
-            //         });
-            //     })
-
-
-*/
-
-
-
-
-    //function createForecastTile(data) {
-    // TODO fill this in.
-    // Something like createWeatherButton().
-    // }
+};
 
 
 
