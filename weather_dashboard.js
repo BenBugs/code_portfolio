@@ -1,10 +1,7 @@
-// Whole-script strict mode syntax
-
 'use strict';
 let v = "strict mode script!";
 
 // load document HTML
-
 $(document).ready(function () {
 
 
@@ -72,25 +69,22 @@ $(document).ready(function () {
 
 
         // this increments the clock live
-        /*let controlClock = setTimeout(clock, 1000);
+        let controlClock = setTimeout(clock, 1000);
         console.log(controlClock)
-        stopClock(controlClock);*/
-
-        //pass the day of week to tile function
-        //buildTile(dayShort);
+        stopClock(controlClock);
     }
 
     clock();
 
-    /*
+    // stops clock in case of recursive loop and memory leak
     function stopClock(controlClock) {
         if (controlClock > 256) {
-        clearTimeout(controlClock);
+            clearTimeout(controlClock);
         };
     };
-    
+
     stopClock();
-    */
+
 
     // load random whether location
     let loadCityName = ['woodstock', 'dundee', 'new york', 'wuhan', 'anchorage', 'hobart', 'tehran', 'chiang mai', 'islamabad', 'london', 'dublin', 'bangkok', 'mogadishu', 'mombasa', 'calcutta', 'manaus', 'phnom penh', 'seattle'];
@@ -101,10 +95,7 @@ $(document).ready(function () {
     getForecast(cityName);
 
 
-
-
     // get user input clicks
-
     $('#query-submit-button').click(function () {
         let cityName = $("#city").val().toLowerCase();
         console.log(cityName);
@@ -126,20 +117,18 @@ $(document).ready(function () {
         };
     });
 
-
-    $('#clear-results-button').on('click', function() {
+    // clear button function
+    $('#clear-results-button').on('click', function () {
         localStorage.setItem('city', null);
         $('#new-button-row').empty();
     })
 
     // listen to submit event to reduce code, work with Sam on this later 
-
-
     function getWeather(cityName) {
         //api key and query string
         const apiKey = `0d00e06c2b9381d1603d8240efcc25fb`;
         let queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-        
+
         // Get current weather
         $.ajax({
             url: queryUrl,
@@ -182,9 +171,9 @@ $(document).ready(function () {
 
                 //test to see if weather key is present
                 if (iconObject[todayIcon]) {
-                    console.log('hooray');
+                    console.log('Hooray, my key is right where I thought it would be');
                 } else {
-                    console.log('fail');
+                    console.log('What? Who has nabbed my blasted key?');
                 }
 
                 // set city name
@@ -287,27 +276,36 @@ $(document).ready(function () {
 
         wrapper.append(cityButton);
         $('#new-button-row').append(wrapper);
-
     }
-
 });
 
-
-    // to load cities from LS use line JSON.parse and createbutton func. 
-
-        // store city inside local
-
-        function storeCityInsideLocal(cityName) {
-            let city = JSON.parse(localStorage.getItem('city')); // converts string back to array
-            if (city === null) {
-                city = [];
-            }
-            city.push(cityName);
-            localStorage.setItem('city', JSON.stringify(city));
-            
-        }
+// store city inside localStorage
+function storeCityInsideLocal(cityName) {
+    let city = JSON.parse(localStorage.getItem('city')); // converts string back to array
+    if (city === null) {
+        city = [];
+    }
+    city.push(cityName);
+    localStorage.setItem('city', JSON.stringify(city));
+}
 
 
+// // loads cities from LS use line JSON.parse and createbutton func. 
+// function getCityOnPageLoad() {
+//     let getCity = JSON.parse(localStorage.getItem('city')); // converts string back to array
+//     console.log(getCity)
+//     if (getCity === null) {
+//         getCity = [];
+//     }
+//     createWeatherButton(getCity);
+// }
+
+
+// load cities from local storage
+getCityOnPageLoad();
+
+
+// get forecast function
 function getForecast(cityName) {
     //api key and query string
     const apiKey = `0d00e06c2b9381d1603d8240efcc25fb`;
@@ -358,8 +356,6 @@ function getForecast(cityName) {
             const icon5Url = forecastObject[icon5];
             console.log(icon5)
 
-            // const iconArr = `${icon1Url} , ${icon2Url} , ${icon3Url} , ${icon4Url} , ${icon5Url}`;
-
             //set icons on page - not day one icon is set from current weather api
             $('.two').attr('src');
             $('.two').css('background-image', "url(" + icon2Url + ")");
@@ -397,55 +393,6 @@ function getForecast(cityName) {
             const hum5 = response.list[5]['main']['humidity'].toFixed(0);
             $('#hum5').text('Hum ' + hum5);
 
-
-            // let i;  //why do i need to do this?
-
-            // for (i = 0; i < 4; i++) {
-            //     let temp = response.list[i]['main']['temp'];
-            //     console.log(temp);
-            // }
-
-            // const newLocal = $('.temp').each(function () {
-            //     $(this).val(temp);
-            // });
-
-
-            // for (i = 0; i < 4; i++) {
-            //     let humidity = response.list[i]['main']['humidity'];
-            //     console.log(humidity);
-            // }
-
-            /*  NOT WORKING
-            let i;
-            function concatIcons(iconArr) {
-                for (i = 1; i < 5; i++) {
-                    let icon = response.list[i]['weather'][0]['main'];
-                    // iconArr = icon.concat();
-                    // console.log(iconArr)
-                    // let iconArrSplit = iconArr.split(" ");
-                    // console.log(iconArrSplit)
-                    const iconUrl = forecastObject[icon];
-                    console.log(iconUrl);
-                    $('.five-day-icon').each(function() {       
-                        $('.five-day-icon').attr('src');
-                        $('.five-day-icon').css('background-image', "url(" + iconUrl + ")");
-                    });
-                }
-            }
-            concatIcons();
-            */
-
-            // let icon = forecastObject[buildTileIcon];
-            // console.log(icon);
-            // let temp = buildTileTemp;
-            // let humidty = buildTileHumidity;
-
-            // $('.five-day-icon').each(function( index ) {
-            //     $( this ).attr('src');
-            //     $('.this').css('background-image', "url(" + forecastObject + ")");
-            //   });
-
-
         })
         // handle all ajax errors
         .catch(error => {
@@ -453,5 +400,3 @@ function getForecast(cityName) {
         })
 
 };
-
-//TO DO loops, local storage, clear results, validate input 
