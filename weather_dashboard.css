@@ -63,11 +63,13 @@
 
 #temp1, #temp2, #temp3, #temp4, #temp5 {
     font-size: 20px;
+    color: #404040;
 }
 
 #hum1, #hum2, #hum3, #hum4, #hum5 {
     font-size: 13px;
     padding-top: 4px;
+        color: #404040;
 }
 
 .temp {
@@ -99,7 +101,7 @@
 
     #day1, #day2, #day3, #day4, #day5 {
         margin-top: 37px;
-        font-size: 21px;
+        font-size: 30px;
     }
 
     #hum1, #hum2, #hum3, #hum4, #hum5 {
@@ -116,7 +118,7 @@
     }
 
     .five-day-icon {
-        height: 90px;
+        height: 105px;
     }
 
     #city-main {
@@ -133,10 +135,6 @@
 
     .temp {
         font-size: 1.25rem;
-    }
-
-    .day-of-week {
-        font-size: 1.55rem;
     }
 
     .wind-speed {
@@ -175,10 +173,6 @@
 
     .temp {
         font-size: 1.25rem;
-    }
-
-    .day-of-week {
-        font-size: 1.55rem;
     }
 
     .wind-speed {

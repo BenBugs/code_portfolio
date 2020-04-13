@@ -111,6 +111,7 @@ $(document).ready(function () {
         getWeather(cityName);
         getForecast(cityName);
         createWeatherButton(cityName);
+        storeCityInsideLocal(cityName);
     });
 
     $('#city').keydown(function () {
@@ -121,14 +122,24 @@ $(document).ready(function () {
             getWeather(cityName);
             getForecast(cityName);
             createWeatherButton(cityName);
+            storeCityInsideLocal(cityName);
         };
     });
+
+
+    $('#clear-results-button').on('click', function() {
+        localStorage.setItem('city', null);
+        $('#new-button-row').empty();
+    })
+
+    // listen to submit event to reduce code, work with Sam on this later 
 
 
     function getWeather(cityName) {
         //api key and query string
         const apiKey = `0d00e06c2b9381d1603d8240efcc25fb`;
         let queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+        
         // Get current weather
         $.ajax({
             url: queryUrl,
@@ -162,7 +173,7 @@ $(document).ready(function () {
                     "Snow": "images_weather_dashboard/snow.svg",
                     "Mist": "images_weather_dashboard/mist.svg",
                     "Clear": "images_weather_dashboard/sun.svg",
-                    "Thunderstorm": "images_weather_dashboard/lightning",
+                    "Thunderstorm": "images_weather_dashboard/lightning.svg",
                     "Haze": "images_weather_dashboard/mist.svg",
                     "Clouds": "images_weather_dashboard/heavy_cloud.svg",
                     "Fog": "images_weather_dashboard/mist.svg"
@@ -236,6 +247,9 @@ $(document).ready(function () {
                 $('.wind-icon').attr('src');
                 $('.wind-icon').css('background-image', "url(" + windUrl + ")");
 
+                $('.one').attr('src');
+                $('.one').css('background-image', "url(" + windUrl + ")");
+
                 //wind speed 
                 const speed = todayWindSpeed.toFixed(0);
 
@@ -256,7 +270,6 @@ $(document).ready(function () {
             })
     };
 
-
     // create location buttons
     function createWeatherButton(cityName) {
         let cityButton = $('<button/>', {
@@ -274,16 +287,31 @@ $(document).ready(function () {
 
         wrapper.append(cityButton);
         $('#new-button-row').append(wrapper);
+
     }
 
 });
+
+
+    // to load cities from LS use line JSON.parse and createbutton func. 
+
+        // store city inside local
+
+        function storeCityInsideLocal(cityName) {
+            let city = JSON.parse(localStorage.getItem('city')); // converts string back to array
+            if (city === null) {
+                city = [];
+            }
+            city.push(cityName);
+            localStorage.setItem('city', JSON.stringify(city));
+            
+        }
+
 
 function getForecast(cityName) {
     //api key and query string
     const apiKey = `0d00e06c2b9381d1603d8240efcc25fb`;
     let queryUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
-
-    // test key  https://api.openweathermap.org/data/2.5/forecast?q=london&appid=0d00e06c2b9381d1603d8240efcc25fb&units=metric
 
     // Get forecast
     $.ajax({
@@ -297,45 +325,125 @@ function getForecast(cityName) {
             let forecastArr = (response.list);
             console.log(forecastArr);
 
+
+            //wind icons
+            let forecastObject = {
+                "Few clouds": "images_weather_dashboard/dark/sun_cloud_dark.svg",
+                "Scattered clouds": "images_weather_dashboard/dark/sun_cloud_dark.svg",
+                "Broken clouds": "images_weather_dashboard/dark/sun_cloud_dark.svg",
+                "Drizzle": "images_weather_dashboard/dark/sun_cloud_light_rain_dark.svg",
+                "Rain": "images_weather_dashboard/dark/rain_dark.svg",
+                "Snow": "images_weather_dashboard/dark/snow_dark.svg",
+                "Mist": "images_weather_dashboard/dark/mist_dark.svg",
+                "Clear": "images_weather_dashboard/dark/sun_dark.svg",
+                "Thunderstorm": "images_weather_dashboard/dark/lightning_dark.svg",
+                "Haze": "images_weather_dashboard/dark/mist_dark.svg",
+                "Clouds": "images_weather_dashboard/dark/heavy_cloud_dark.svg",
+                "Fog": "images_weather_dashboard/mist.svg"
+            };
+
+            const icon1 = response.list[1]['weather'][0]['main'];
+            const icon1Url = forecastObject[icon1];
+            console.log(icon1)
+            const icon2 = response.list[2]['weather'][0]['main'];
+            const icon2Url = forecastObject[icon2];
+            console.log(icon2)
+            const icon3 = response.list[3]['weather'][0]['main'];
+            const icon3Url = forecastObject[icon3];
+            console.log(icon3)
+            const icon4 = response.list[4]['weather'][0]['main'];
+            const icon4Url = forecastObject[icon4];
+            console.log(icon4)
+            const icon5 = response.list[5]['weather'][0]['main'];
+            const icon5Url = forecastObject[icon5];
+            console.log(icon5)
+
+            // const iconArr = `${icon1Url} , ${icon2Url} , ${icon3Url} , ${icon4Url} , ${icon5Url}`;
+
+            //set icons on page - not day one icon is set from current weather api
+            $('.two').attr('src');
+            $('.two').css('background-image', "url(" + icon2Url + ")");
+
+            $('.three').attr('src');
+            $('.three').css('background-image', "url(" + icon3Url + ")");
+
+            $('.four').attr('src');
+            $('.four').css('background-image', "url(" + icon4Url + ")");
+
+            $('.five').attr('src');
+            $('.five').css('background-image', "url(" + icon5Url + ")");
+
+
+            const temp1 = response.list[1]['main']['temp'].toFixed(0);
+            const temp1Str = (temp1 + '°');
+            $('#temp1').text(temp1Str);
+            const temp2 = response.list[2]['main']['temp'].toFixed(0);
+            $('#temp2').text(temp2 + '°');
+            const temp3 = response.list[3]['main']['temp'].toFixed(0);
+            $('#temp3').text(temp3 + '°');
+            const temp4 = response.list[4]['main']['temp'].toFixed(0);
+            $('#temp4').text(temp4 + '°');
+            const temp5 = response.list[5]['main']['temp'].toFixed(0);
+            $('#temp5').text(temp5 + '°');
+
+            const hum1 = response.list[1]['main']['humidity'].toFixed(0);
+            $('#hum1').text('Hum ' + hum1);
+            const hum2 = response.list[2]['main']['humidity'].toFixed(0);
+            $('#hum2').text('Hum ' + hum2);
+            const hum3 = response.list[3]['main']['humidity'].toFixed(0);
+            $('#hum3').text('Hum ' + hum3);
+            const hum4 = response.list[4]['main']['humidity'].toFixed(0);
+            $('#hum4').text('Hum ' + hum4);
+            const hum5 = response.list[5]['main']['humidity'].toFixed(0);
+            $('#hum5').text('Hum ' + hum5);
+
+
+            // let i;  //why do i need to do this?
+
+            // for (i = 0; i < 4; i++) {
+            //     let temp = response.list[i]['main']['temp'];
+            //     console.log(temp);
+            // }
+
+            // const newLocal = $('.temp').each(function () {
+            //     $(this).val(temp);
+            // });
+
+
+            // for (i = 0; i < 4; i++) {
+            //     let humidity = response.list[i]['main']['humidity'];
+            //     console.log(humidity);
+            // }
+
+            /*  NOT WORKING
             let i;
-
-            for (i = 0; i < 4; i++) {
-            const buildTileIcon = response.list[i]['weather'][0]['main'];
-            console.log(buildTileIcon);
-            buildTile(buildTileIcon);
-            const buildTileTemp = response.list[i]['main']['temp'];
-            console.log(buildTileTemp);
-            const buildTileHumidity = response.list[i]['main']['humidity'];
-            console.log(buildTileHumidity);
+            function concatIcons(iconArr) {
+                for (i = 1; i < 5; i++) {
+                    let icon = response.list[i]['weather'][0]['main'];
+                    // iconArr = icon.concat();
+                    // console.log(iconArr)
+                    // let iconArrSplit = iconArr.split(" ");
+                    // console.log(iconArrSplit)
+                    const iconUrl = forecastObject[icon];
+                    console.log(iconUrl);
+                    $('.five-day-icon').each(function() {       
+                        $('.five-day-icon').attr('src');
+                        $('.five-day-icon').css('background-image', "url(" + iconUrl + ")");
+                    });
+                }
             }
+            concatIcons();
+            */
 
-                        // create location buttons
-    function buildTile(response) {
+            // let icon = forecastObject[buildTileIcon];
+            // console.log(icon);
+            // let temp = buildTileTemp;
+            // let humidty = buildTileHumidity;
 
-        //wind icons
-        let forecastObject = {
-            "Few clouds": "images_weather_dashboard/dark/sun_cloud_dark.svg",
-            "Scattered clouds": "images_weather_dashboard/dark/sun_cloud_dark.svg",
-            "Broken clouds": "images_weather_dashboard/dark/sun_cloud_dark.svg",
-            "Drizzle": "images_weather_dashboard/dark/sun_cloud_light_rain_dark.svg",
-            "Rain": "images_weather_dashboard/dark/rain_dark.svg",
-            "Snow": "images_weather_dashboard/dark/snow_dark.svg",
-            "Mist": "images_weather_dashboard/dark/mist_dark.svg",
-            "Clear": "images_weather_dashboard/dark/sun_dark.svg",
-            "Thunderstorm": "images_weather_dashboard/dark/lightning_dark.svg",
-            "Haze": "images_weather_dashboard/dark/mist_dark.svg",
-            "Clouds": "images_weather_dashboard/dark/heavy_cloud_dark.svg",
-            "Fog": "images_weather_dashboard/mist.svg"
-        };
-
-        let icon = forecastObject[response];
-        console.log(icon);
-        let temp = buildTileTemp;
-        let humidty = buildTileHumidity;
-        $('.wind-icon').attr('src');
-        // $('.wind-icon').css('background-image', "url(" + windUrl + ")");
-};
-
+            // $('.five-day-icon').each(function( index ) {
+            //     $( this ).attr('src');
+            //     $('.this').css('background-image', "url(" + forecastObject + ")");
+            //   });
 
 
         })
@@ -346,41 +454,4 @@ function getForecast(cityName) {
 
 };
 
-
-
-
-
-
-// getWeatherDataAddButton();
-
-//let openWeather = { "coord": { "lon": 138.6, "lat": -34.93 }, "weather": [{ "id": 804, "main": "Clouds", "description": "overcast clouds", "icon": "04d" }], "base": "stations", "main": { "temp": 20.72, "feels_like": 17.24, "temp_min": 20, "temp_max": 22.78, "pressure": 1012, "humidity": 56 }, "visibility": 10000, "wind": { "speed": 5.7, "deg": 50 }, "clouds": { "all": 90 }, "dt": 1585715323, "sys": { "type": 1, "id": 9566, "country": "AU", "sunrise": 1585688283, "sunset": 1585730434 }, "timezone": 37800, "id": 2078025, "name": "Adelaide", "cod": 200 }
-
-
-// $(this).find(".saveBtn").on('click', function () {
-//     let inputText = inputElement.val();
-//     console.log(inputText);
-//     // local storage experiment
-//     localStorage.setItem('slot' + currentSlot, inputText);
-//     console.log(localStorage);
-// })
-
-
-// let iconArray = {
-
-//     "few clouds": "images_weather_dashboard/sun_cloud.svg",
-//     "scattered clouds": "images_weather_dashboard/sun_cloud.svg",
-//     "broken clouds": "images_weather_dashboard/sun_cloud.svg",
-//     "show rain": "images_weather_dashboard/sun_cloud_light_rain.svg",
-//     "rain": "images_weather_dashboard/rain.svg",
-//     "snow": "images_weather_dashboard/snow.svg",
-//     "mist": "images_weather_dashboard/heavy_cloud.svg"
-// };
-
-
-
-
-
-
-
-
-
+//TO DO loops, local storage, clear results, validate input 
