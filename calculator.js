@@ -13,7 +13,20 @@ $(document).ready(function() {
           let operator;
           operator = event.currentTarget.value;
           console.log(operator);
-      })
+    
+          if(operator === "plus"){
+            $('#display-sum').text('+');
+          } else if(operator === "minus"){
+            $('#display-sum').text('-');
+          } else if(operator === "times"){
+            $('#display-sum').text('x');
+          }else if(operator === "divide"){
+            $('#display-sum').text('/');
+          }
+          numIndex = 1;
+        });
+
+
     
     
     
