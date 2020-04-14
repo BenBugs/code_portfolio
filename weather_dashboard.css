@@ -140,6 +140,10 @@
     .wind-speed {
         font-size: 1.55rem;
     }
+
+    #day-of-week {
+        font-size: 1.55rem;
+    }
     
 }
 
@@ -176,7 +180,11 @@
     }
 
     .wind-speed {
-        font-size: 1.55rem;
+        font-size: 1.25rem;
+    }
+
+    #day-of-week {
+        font-size: 1.25rem;
     }
 
 }

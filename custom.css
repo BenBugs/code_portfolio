@@ -108,6 +108,14 @@ p {
     background-size: cover;
 }
 
+.port-img {
+    height: 150px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 .overlay {
     width: 100%;
     height: 70px;

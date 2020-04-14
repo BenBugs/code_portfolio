@@ -84,6 +84,7 @@ $(document).ready(function () {
     };
 
     stopClock();
+    getCityOnPageLoad();
 
 
     // load random whether location
@@ -122,6 +123,9 @@ $(document).ready(function () {
         localStorage.setItem('city', null);
         $('#new-button-row').empty();
     })
+
+
+
 
     // listen to submit event to reduce code, work with Sam on this later 
     function getWeather(cityName) {
@@ -250,7 +254,7 @@ $(document).ready(function () {
                     degree = '0';
                 }
 
-                $('#wind-index').text(speed + 'mph / ' + degree);
+                $('#wind-index').text(speed + 'mph / ' + degree + '°');
 
             })
             // handle all ajax errors
@@ -277,28 +281,32 @@ $(document).ready(function () {
         wrapper.append(cityButton);
         $('#new-button-row').append(wrapper);
     }
-});
 
-// store city inside localStorage
-function storeCityInsideLocal(cityName) {
-    let city = JSON.parse(localStorage.getItem('city')); // converts string back to array
-    if (city === null) {
-        city = [];
+    // loads cities from LS use line JSON.parse and createbutton func. 
+    function getCityOnPageLoad() {
+        let getCity = JSON.parse(localStorage.getItem('city')); // converts string back to array
+        console.log(getCity)
+        if (getCity === null) {
+            getCity = [];
+        }
+
+        for (let i = 0; i < getCity.length; i++) {
+            createWeatherButton(getCity[i]);
+        }
     }
-    city.push(cityName);
-    localStorage.setItem('city', JSON.stringify(city));
-}
 
 
-// // loads cities from LS use line JSON.parse and createbutton func. 
-// function getCityOnPageLoad() {
-//     let getCity = JSON.parse(localStorage.getItem('city')); // converts string back to array
-//     console.log(getCity)
-//     if (getCity === null) {
-//         getCity = [];
-//     }
-//     createWeatherButton(getCity);
-// }
+    // store city inside localStorage
+    function storeCityInsideLocal(cityName) {
+        let city = JSON.parse(localStorage.getItem('city')); // converts string back to array
+        if (city === null) {
+            city = [];
+        }
+        city.push(cityName);
+        localStorage.setItem('city', JSON.stringify(city));
+    }
+
+});
 
 
 // load cities from local storage
