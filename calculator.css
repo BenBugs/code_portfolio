@@ -31,13 +31,29 @@
     }
 
 .row-calc {
-        height: 88px;
+        height: 72px;
     }
 
-.calc-button {
+.number-button {
         font-size: 22px;
         color: #000;
     }
+
+    .opp-button {
+        font-size: 22px;
+        color: #000;
+    }
+
+    .clear-button {
+        font-size: 22px;
+        color: #000;
+    }
+
+    .equals-button {
+        font-size: 22px;
+        color: #000;
+    }
+
 
 .dot {
         background-image: url("calculator/equals-dot.svg");
@@ -53,8 +69,9 @@
 }
 
 #display-sum {
-color: #c4d7e3;
-padding-right: 8px;
+padding-right: 14px;
+font-weight: 300;
+letter-spacing: 0.8px;
 }
 
 button {
@@ -74,7 +91,7 @@ button {
     color: #fcc955;
   } 
 
-  .btn::hover {
+  .btn:hover {
     border-color: none;
     color: #fcc955;
   } 

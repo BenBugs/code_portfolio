@@ -8,6 +8,12 @@ $(document).ready(function() {
         console.log(inputNum);
         $('#display-sum').text(inputNum[numIndex]);
       })
+
+      $('.opp-button').on("click", (event)=> {
+          let operator;
+          operator = event.currentTarget.value;
+          console.log(operator);
+      })
     
     
     
