@@ -122,8 +122,23 @@ p {
 }
 
 #weather-dash {
-    background-image: url("images/portfolio/weather-dash.jpg");
+    background-image: url("images/portfolio/weather_dash.jpg");
+}
 
+#calculator {
+    background-image: url("images/portfolio/calculator.jpg");
+}
+
+#scale {
+    background-image: url("images/portfolio/scale.jpg");
+}
+
+#matt-lock{
+    background-image: url("images/portfolio/matt_lock.jpg");
+}
+
+#boggle{
+    background-image: url("images/portfolio/boggle.jpg");
 }
 
 .nounderline {
