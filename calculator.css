@@ -34,26 +34,10 @@
         height: 72px;
     }
 
-.number-button {
+.button {
         font-size: 22px;
         color: #000;
     }
-
-    .opp-button {
-        font-size: 22px;
-        color: #000;
-    }
-
-    .clear-button {
-        font-size: 22px;
-        color: #000;
-    }
-
-    .equals-button {
-        font-size: 22px;
-        color: #000;
-    }
-
 
 .dot {
         background-image: url("calculator/equals-dot.svg");

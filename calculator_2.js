@@ -10,7 +10,8 @@ $(document).ready(function () {
     // gets the click event object and determines whether number or operator
     $(document).ready(function () {
         $('button').on('click', function (e) {
-            let btn = e.target.innerHTML;
+            let btn = e.target.innerText; //innerHTML?
+            console.log(btn);
             if (btn >= '0' && btn <= '9') {
                 handleNumber(btn);
             } else {
@@ -19,16 +20,36 @@ $(document).ready(function () {
         });
     });
 
+    // number button handling logic
+    function handleNumber(num) { 
+        if (num1 === '') { //if num1 is empty put number in number 1
+            num1 = num; 
+            console.log(num1)
+        } else { num2 = num; } // else number goes in number 2
+        displayButton(num); //call function
+        console.log(num2)
+    }
 
+    // operator handling
+    function handleOperator(oper) {   
+        operator = oper;
+    }
 
+    // display button press
+    function displayButton(btn) { 
+        $('#display-answer').text(btn);
+    }
 
+    //case function to handle operators
+    function handleTotal() {    
+        switch (operator) {        
+            case '+':            
+            total = +num1 + +num2;            
+            displayButton(total);            
+            break;    
+        }
+    }
 
-
-
-
-    // function handleNumber(num) {
-
-    // }
 
 
 
