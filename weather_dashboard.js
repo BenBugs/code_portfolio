@@ -84,11 +84,10 @@ $(document).ready(function () {
     };
 
     stopClock();
-    getCityOnPageLoad();
 
 
-    // load random whether location
-    let loadCityName = ['woodstock', 'dundee', 'new york', 'wuhan', 'anchorage', 'hobart', 'tehran', 'chiang mai', 'islamabad', 'london', 'dublin', 'bangkok', 'mogadishu', 'mombasa', 'calcutta', 'manaus', 'phnom penh', 'seattle'];
+        // load random whether location
+    let loadCityName = ['woodstock', 'dundee', 'new york', 'wuhan', 'anchorage', 'hobart', 'tehran', 'hanoi', 'islamabad', 'london', 'dublin', 'bangkok', 'mogadishu', 'mombasa', 'calcutta', 'manaus', 'kyoto', 'seattle', 'berlin', 'naples', 'buenos aires', 'miami', 'peshawar', 'new delhi', 'beijing', 'honolulu'];
     let index = Math.floor(Math.random() * loadCityName.length);
     let cityName = loadCityName[index];
     console.log(cityName);
