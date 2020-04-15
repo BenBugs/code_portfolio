@@ -46,6 +46,18 @@ $(document).ready(function () {
             case '+':            
             total = +num1 + +num2;            
             displayButton(total);            
+            break; 
+            case '-':            
+            total = +num1 - +num2;            
+            displayButton(total);            
+            break; 
+            case 'x':            
+            total = +num1 * +num2;            
+            displayButton(total);            
+            break; 
+            case '/':            
+            total = +num1 / +num2;            
+            displayButton(total);            
             break;    
         }
     }
