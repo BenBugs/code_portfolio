@@ -1,50 +1,95 @@
 $(document).ready(function () {
 
+let num1 = '';
+let num2 = '';
+let operator = '';
+let total = '';
+
+ $('button').on('click', function(e) {
+     console.log('e', e.target.innerHTML);    
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // let inputNum = ["", ""];
     // let numIndex = 0;
 
-    let displayAnswer = $('#display-answer').text();
+    // let displayAnswer = $('#display-answer').text();
 
-    $('.number-button').on("click", (event) => {
-        let number;
-        number = event.currentTarget.value;
-        console.log(number);
-        let numberStr = number.appendTo();
-        console.log(numberStr);
-        // $("#display-answer").append(number);
-    })
+    // $('.number-button').on("click", (event) => {
+    //     let number;
+    //     number = event.currentTarget.value;
+    //     console.log(number);
+    //     let numberStr = number.appendTo();
+    //     console.log(numberStr);
+    //     // $("#display-answer").append(number);
+    // })
 
    
-// const str1 = 'Hello';
-// const str2 = 'World';
+    // const str1 = 'Hello';
+    // const str2 = 'World';
 
-// console.log(str1.concat(' ', str2));
-// // expected output: "Hello World"
+    // console.log(str1.concat(' ', str2));
+    // // expected output: "Hello World"
 
-// console.log(str2.concat(', ', str1));
-// // expected output: "World, Hello"
-
-
+    // console.log(str2.concat(', ', str1));
+    // // expected output: "World, Hello"
 
 
-
-
-    $('.opp-button').on("click", (event) => {
-        let operator;
-        operator = event.currentTarget.value;
-        console.log(operator);
-    });
+    // $('.opp-button').on("click", (event) => {
+    //     let operator;
+    //     operator = event.currentTarget.value;
+    //     console.log(operator);
+    // });
 
     // function createSumStr(number) {
     //    let create =+ number.tostring();
     // }
 
     // createSumStr();
-
-
-
-
-
 
 
         // if (operator === '+') {
