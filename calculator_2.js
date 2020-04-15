@@ -1,13 +1,47 @@
 $(document).ready(function () {
 
-let num1 = '';
-let num2 = '';
-let operator = '';
-let total = '';
+    //code from tutorial exercise with customisation https://www.freecodecamp.org/news/programming-a-calculator-8263966a8019/
 
- $('button').on('click', function(e) {
-     console.log('e', e.target.innerHTML);    
+    let num1 = '';
+    let num2 = '';
+    let operator = '';
+    let total = '';
+
+    // gets the click event object and determines whether number or operator
+    $(document).ready(function () {
+        $('button').on('click', function (e) {
+            let btn = e.target.innerHTML;
+            if (btn >= '0' && btn <= '9') {
+                handleNumber(btn);
+            } else {
+                handleOperator(btn);
+            }
+        });
     });
+
+
+
+
+
+
+
+
+    // function handleNumber(num) {
+
+    // }
+
+
+
+
+
+
+
+    function handleOperator(oper) {    // code goes here}
+    }
+
+
+
+
 
 
 
@@ -68,7 +102,7 @@ let total = '';
     //     // $("#display-answer").append(number);
     // })
 
-   
+
     // const str1 = 'Hello';
     // const str2 = 'World';
 
@@ -92,17 +126,17 @@ let total = '';
     // createSumStr();
 
 
-        // if (operator === '+') {
-        //     $('#display-answer').text('+');
-        // } else if (operator === '-') {
-        //     $('#display-answer').text('-');
-        // } else if (operator === '*') {
-        //     $('#display-answer').text('x');
-        // } else if (operator === '/') {
-        //     $('#display-answer').text('/');
-        // }
+    // if (operator === '+') {
+    //     $('#display-answer').text('+');
+    // } else if (operator === '-') {
+    //     $('#display-answer').text('-');
+    // } else if (operator === '*') {
+    //     $('#display-answer').text('x');
+    // } else if (operator === '/') {
+    //     $('#display-answer').text('/');
+    // }
 
-        // numIndex = 1;
+    // numIndex = 1;
 
 
 
