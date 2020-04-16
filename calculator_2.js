@@ -2,8 +2,8 @@ $(document).ready(function () {
 
     //code from tutorial exercise with customisation https://www.freecodecamp.org/news/programming-a-calculator-8263966a8019/
 
-    let num1 = '';
-    let num2 = '';
+    let num1 = [''];
+    let num2 = [''];
     let operator = '';
     let total = '';
 
