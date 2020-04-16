@@ -27,6 +27,45 @@ $(document).ready(function () {
     // }     // const sum = new Display('666', '123'); use a class
 
 
+
+    $('button').on('click', function (e) {
+        let btn = e.currentTarget.innerText;
+
+        const { target } = event;
+  if (!target.matches('button')) {
+    return;
+  }
+
+  if (target.contains('data-operator')) {
+    console.log('operator', currentTarget.value);
+    return;
+  }
+
+  if (target.contains('data-decimal')) {
+    console.log('decimal', currentTarget.value);
+    return;
+  }
+
+  if (target.contains('C')) {
+    console.log('clear', currentTarget.value);
+    return;
+  }
+
+  console.log('data-number', currentTarget.value);
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
 $('button').on('click', function (e) {
             let btn = e.currentTarget.innerText;
             str[currentIndex] += btn;
@@ -35,18 +74,7 @@ $('button').on('click', function (e) {
 });
 
 
-    // // gets the click event object and determines whether number or operator
-    // $(document).ready(function () {
-    //     $('button').on('click', function (e) {
-    //         let btn = e.target.innerText; //innerHTML?
-    //         console.log(btn);
-    //         if (btn >= '0' && btn <= '9') {
-    //             handleNumber(btn);
-    //         } else if (btn !== 'C') {
-    //             handleOperator(btn);
-    //         }
-    //     });
-    // });
+
 
     // // number button handling logic
     // function handleNumber(num) {
