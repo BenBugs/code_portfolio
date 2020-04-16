@@ -13,26 +13,25 @@ $(document).ready(function () {
     operator = $('data-operator').val();
     equal = $('data-equal').val();
     clear = $('data-clear').val();
-    displaySum = $('#display-sum').val();
-    displayAnswer = $('#display-answer').val();
-    console.log(number , operator , equal , clear , displaySum , displayAnswer)
+    displaySum = $('#display-sum').text();
+    displayAnswer = $('#display-answer').text();
+    //console.log(number , operator , equal , clear , displaySum , displayAnswer)
 
 
-    // calculator display
-    class Display {
-    constructor(displaySum , displayAnswer) {
-        this.displaySum = displaySum;
-        this.displayAnswer = displayAnswer;
-    }
-    }     // const sum = new Display('666', '123'); use a class
+    // // calculator display
+    // class Display {
+    // constructor(displaySum , displayAnswer) {
+    //     this.displaySum = displaySum;
+    //     this.displayAnswer = displayAnswer;
+    // }
+    // }     // const sum = new Display('666', '123'); use a class
 
 
 $('button').on('click', function (e) {
             let btn = e.currentTarget.innerText;
             str[currentIndex] += btn;
-            // console.log(btn);
-            // console.log(str);
-    
+            console.log(str);
+            $('#display-sum').text(str);
 });
 
 
