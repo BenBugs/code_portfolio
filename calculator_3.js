@@ -1,79 +1,95 @@
 $(document).ready(function () {
 
   // str storage
-  let sumStr = [""];
-  let operator = '';
+  let sumStr = [''];
+  let operator = null;
   let total = '';
   const currentIndex = 0;
-  let str = [""];
-
+  let str = [''];
+  let btn;
+  let firstOperand = null;
+  let waitingForSecondOperand = false;
 
   // get buttons
-  number = $('data-number').val();
-  operator = $('data-operator').val();
-  equal = $('data-equal').val();
-  clear = $('data-clear').val();
-  displaySum = $('#display-sum').text();
-  displayAnswer = $('#display-answer').text();
+  // number = $('data-number').val();
+  // operator = $('data-operator').val();
+  // equal = $('data-equal').val();
+  // clear = $('data-clear').val();
+  // displaySum = $('#display-sum').text();
+  // displayAnswer = $('#display-answer').text();
   //console.log(number , operator , equal , clear , displaySum , displayAnswer)
 
 
-  // // calculator display
-  // class Display {
-  // constructor(displaySum , displayAnswer) {
-  //     this.displaySum = displaySum;
-  //     this.displayAnswer = displayAnswer;
-  // }
-  // }     // const sum = new Display('666', '123'); use a class
-
-
-
+  // button handling
   $('button').on('click', function (e) {
-    let btn = e.currentTarget.innerText;
+
     if (!e.currentTarget.matches('button')) {
-      console.log('This event is not a button!');
+      //console.log('This event is not a button!');
       return;
-      }
+    }
 
-      if (e.currentTarget.matches('[data="data-number"]')) {
-        console.log('number', e.currentTarget.value);
-      } 
-      
-      else if (e.currentTarget.matches('[data="data-operator"]')) {
-        console.log('operator', e.currentTarget.value);
-      }
+    if (e.currentTarget.matches('[data="data-number"]')) {
+      // console.log('number', e.currentTarget.innerText);
+      btn = e.currentTarget.innerText;
+    }
 
-      else if (e.currentTarget.matches('[data="data-decimal"]')) {
-        console.log('decimal', e.currentTarget.value);
-      }
+    else if (e.currentTarget.matches('[data="data-operator"]')) {
+      //console.log('operator', e.currentTarget.innerText);
+      btn = e.currentTarget.innerText;
+    }
 
-      else if (e.currentTarget.matches('[data="data-equal"]')) {
-        console.log('equal', e.currentTarget.value);
-      }
+    else if (e.currentTarget.matches('[data="data-decimal"]')) {
+      //console.log('decimal', e.currentTarget.innerText);
+      btn = e.currentTarget.innerText;
+    }
 
-      else if (e.currentTarget.matches('[data="data-clear"]')) {
-        console.log('clear', e.currentTarget.value);
-      }
+    else if (e.currentTarget.matches('[data="data-equal"]')) {
+      //console.log('equal', e.currentTarget.innerText);
+      btn = e.currentTarget.innerText;
+    }
 
-    });
+    else if (e.currentTarget.matches('[data="data-clear"]')) {
+      //console.log('clear', e.currentTarget.innerText);
+      btn = e.currentTarget.innerText;
+    }
+
+    console.log(btn);
+
+    // add value to string and output to display sum
+    str[currentIndex] += btn;
+    console.log(str);
+    $('#display-sum').text(str);
+
+  });
+
+  function getNum() {
+    let firstNum = str.parseInt(str, 10);
+    console.log(firstNum);
+  }
 
 
 
 
-
-
-
-
-
-
-
-
-  // $('button').on('click', function (e) {
-  //   let btn = e.currentTarget.innerText;
-  //   str[currentIndex] += btn;
+  // function noDuplication() {
+  //   if (!str.includes('.')) {
+  //   str += btn;
   //   console.log(str);
-  //   $('#display-sum').text(str);
-  // });
+  //   }
+  // }
+
+  // noDuplication();
+
+  // function inputDecimal(dot) {
+  //   // If the `displayValue` does not contain a decimal point
+  //   if (!calculator.displayValue.includes(dot)) {
+  //     // Append the decimal point
+  //     calculator.displayValue += dot;
+  //   }
+  // }
+
+
+
+
 
 
 
@@ -146,6 +162,15 @@ $(document).ready(function () {
   //     $('#display-answer').text('0');
   // })
 
+
+
+
+  // $('button').on('click', function (e) {
+  //   let btn = e.currentTarget.innerText;
+  //   str[currentIndex] += btn;
+  //   console.log(str);
+  //   $('#display-sum').text(str);
+  // });
 
 
 
