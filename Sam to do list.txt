@@ -1,6 +1,0 @@
-//TO DO 
-
-local storage
-clear results
-loops
-validate input 
