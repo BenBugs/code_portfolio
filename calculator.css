@@ -65,6 +65,12 @@ button {
     background-color: transparent;
   }
 
+  .btn:focus {
+    border-color: none;
+    color: inherit;
+    box-shadow: none;
+  } 
+
   .btn:hover {
     border-color: none;
     color: #fcc955;
@@ -75,16 +81,11 @@ button {
     color: #fcc955;
   } 
 
-  .btn:hover {
+  .btn:active:hover {
     border-color: none;
-    color: #fcc955;
+    color: #fcc955 !important;
   } 
 
-  .btn:focus {
-    border-color: none;
-    color: inherit;
-    box-shadow: none;
-  } 
 
     @media only screen and (min-width: 992px) {
         .readme {

@@ -40,6 +40,9 @@
                             <li class="nav-item">
                                 <a class="nav-link text-secondary" href="portfolio.html">Portfolio</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-secondary" href="uofa.html">UofA</a>
+                            </li>
                             <li class="nav-item ">
                                 <a class="nav-link text-secondary" href="contact.html">Contact</a>
                             </li>
@@ -80,10 +83,13 @@
                         <a class="nav-link text-secondary mb-3" href="about.html">About</a>
                     </li>
                     <li class="nav-item mb-3">
-                        <a class="nav-link text-secondary" href="portfolio.html">Portfolio</a>
+                        <a class="nav-link text-secondary " href="portfolio.html">Portfolio</a>
                     </li>
                     <li class="nav-item mb-3">
-                        <a class="nav-link text-secondary" href="contact.html">Contact</a>
+                        <a class="nav-link text-secondary " href="uofa.html">University of Adelaide</a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a class="nav-link text-secondary " href="contact.html">Contact</a>
                     </li>
                 </ul>
                 <!-- Links -->
@@ -157,7 +163,7 @@
 
             <!-- end of colored container -->
 
-            <div class="row bg-white pb-1 shadow">
+            <div class="row bg-white pb-1 mb-5 shadow">
 
                 <div class="col-sm-12 col-md-5 col-lg-5 col-xl-5 d-flex flex-row mt-4 mb-4">
                     <div class="col">
@@ -166,7 +172,9 @@
                     </div>
                     <div class="col wind">
                         <div class="wind-icon justify-content-center" id="wind-icon"></div>
-                        <div class="text-center"><p class="wind-title">Wind</p></div>
+                        <div class="text-center">
+                            <p class="wind-title">Wind</p>
+                        </div>
                         <div class="text-center">
                             <h5 id="wind-index" class="wind-speed"></h5>
                         </div>
@@ -174,31 +182,36 @@
                 </div>
 
                 <div class="col-sm-12 col-md-7 col-lg-7 col-xl-7 d-md-flex mt-4 mb-4">
-                    <div class="col text-center day-first five-day-tile pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pb-5 pb-sm-5 pb-md-0 pb-lg-0 pb-xl-0">
+                    <div
+                        class="col text-center day-first five-day-tile pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pb-5 pb-sm-5 pb-md-0 pb-lg-0 pb-xl-0">
                         <p><span class="text-dark day-of-week" id="day1"></span></p> <!-- day of week-->
                         <div #id="day-1-icon" class="five-day-icon mt-2 mb-2 one"></div> <!-- icon -->
                         <p id="temp1"><span class="temp"></span></p> <!-- temp -->
                         <p id="hum1"></p> <!-- humid -->
                     </div>
-                    <div class="col text-center day five-day-tile pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pb-5 pb-sm-5 pb-md-0 pb-lg-0 pb-xl-0">
+                    <div
+                        class="col text-center day five-day-tile pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pb-5 pb-sm-5 pb-md-0 pb-lg-0 pb-xl-0">
                         <p><span class="text-dark day-of-week" id="day2"></span></p> <!-- day of week-->
                         <div id="day-2-icon" class="five-day-icon mt-2 mb-2 two"></div> <!-- icon -->
                         <p id="temp2"><span class="temp"></span></p> <!-- temp -->
                         <p id="hum2"></p> <!-- humid -->
                     </div>
-                    <div class="col text-center day five-day-tile pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pb-5 pb-sm-5 pb-md-0 pb-lg-0 pb-xl-0">
+                    <div
+                        class="col text-center day five-day-tile pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pb-5 pb-sm-5 pb-md-0 pb-lg-0 pb-xl-0">
                         <p><span class="text-dark day-of-week" id="day3"></span></p> <!-- day of week-->
                         <div id="day-3-icon" class="five-day-icon mt-2 mb-2 three"></div><!-- icon -->
                         <p id="temp3"><span class="temp"></span></p> <!-- temp -->
                         <p id="hum3"></p> <!-- humid -->
                     </div>
-                    <div class="col text-center day five-day-tile pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pb-5 pb-sm-5 pb-md-0 pb-lg-0 pb-xl-0">
+                    <div
+                        class="col text-center day five-day-tile pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pb-5 pb-sm-5 pb-md-0 pb-lg-0 pb-xl-0">
                         <p><span class="text-dark day-of-week" id="day4"></span></p> <!-- day of week-->
                         <div id="day-4-icon" class="five-day-icon mt-2 mb-2 four"></div> <!-- icon -->
                         <p id="temp4"><span class="temp"></span></p> <!-- temp -->
                         <p id="hum4"></p> <!-- humid -->
                     </div>
-                    <div class="col text-center day five-day-tile pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pb-5 pb-sm-5 pb-md-0 pb-lg-0 pb-xl-0">
+                    <div
+                        class="col text-center day five-day-tile pt-5 pt-sm-5 pt-md-0 pt-lg-0 pt-xl-0 pb-5 pb-sm-5 pb-md-0 pb-lg-0 pb-xl-0">
                         <p><span class="text-dark day-of-week" id="day5"></span></p> <!-- day of week-->
                         <div id="day-5-icon" class="five-day-icon mt-2 mb-2 five"></div> <!-- icon -->
                         <p id="temp5"><span class="temp"></span></p> <!-- temp -->
@@ -207,6 +220,69 @@
                 </div>
 
             </div>
+
+            <div class="row">
+                <div class="col bg-white shadow p-4 mb-5">
+                    <div class="row header-row-pages m-3">
+
+                        <div class="col padding-left">
+                            <h2>Read me</h2>
+                        </div>
+                    </div>
+
+                    <div class="row m-3">
+                        <div class="col padding-left padding-right mt-4">
+                            <p class="mb-4">This weather dashboard uses two seperate APIs from <a
+                                    href="https://openweathermap.org/api" target="_blank"
+                                    class="nounderline">OpenWeather</a> to deliver a current forecast and a five day
+                                forecast for over 200,000 cities worldwide.</p>
+                            <p class="mb-4">The application launches with one city, selected at random from a list of 15
+                                well known locations. You can enter any major city across the globe and retrieve weather
+                                data that is refeshed every 3 hours for the current forecast and every five hours for
+                                the 5 day forecast.</p>
+                            <p class="mb-4">In addition to weather conditions including temperature, wind
+                                speed/direction and humidity, there is a clock that utilises the <a
+                                    href="https://moment.github.io/luxon" target="_blank" class="nounderline">Luxon</a>
+                                date and time library to return a time that accurate to the millisecond.</p>
+                            <p class="mb-4">The dashboard has been designed inline with <a
+                                    href="https://material.io/design" target="_blank" class="nounderline">Google
+                                    Material Design</a> principles and features background images that correspond to
+                                local weather conditions. This add an additional layer of information to help you get a
+                                'feel' for the weather locally, much like AccuWeather's RealFeel©.</p>
+
+                        </div>
+                    </div>
+
+                    <div class="row header-row-pages m-3">
+                        <div class="col padding-left">
+                            <h3>Technology</h3>
+                        </div>
+                    </div>
+
+                    <div class="row m-3">
+                        <div class="col padding-left padding-right mt-4">
+
+                            <p class="mb-4">This project was built using:</p>
+                            <ul>
+                                <li>HTML 5, Bootstrap 4.4.1, and custom CSS
+                                </li>
+                                <li>JavaScript
+                                </li>
+                                <li><a href="https://openweathermap.org/api" target="_blank"
+                                        class="nounderline">OpenWeather</a> API
+                                </li>
+                                <li><a href="https://moment.github.io/luxon" target="_blank"
+                                        class="nounderline">Luxon</a> date and time library
+                            </ul>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
 
         </div>
 
@@ -233,6 +309,25 @@
 
     <footer class="footer">
         <div class="container-xl">
+            <div class="row pl-3 pr-3 mt-5 mb-5">
+                <div class="col-sm-3"></div>
+                <div class="col d-flex justify-content-around">
+                    <a href="https://www.linkedin.com/in/ben-cole-10418b14/">
+                        <div class="social" id="linkedin"></div>
+                    </a>
+                    <a href="https://github.com/BenBugs">
+                        <div class="social" id="github"></div>
+                    </a>
+                    <a href="https://twitter.com/ben_tweet">
+                        <div class="social" id="twitter"></div>
+                    </a>
+                    <a href="https://stackoverflow.com/users/8799964/benbugs?tab=profile">
+                        <div class="social" id="stackoverflow"></div>
+                    </a>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+
             <div class="row pl-3 pr-3">
                 <div class="col-sm">
                     <p class="text-dark text-center footer-text">© Benedict Cole - 2020</p>

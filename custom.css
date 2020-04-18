@@ -27,6 +27,13 @@ header {
     background-color: transparent;
 }
 
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
 .logo-row {
     height: 80px;
 }
@@ -54,6 +61,7 @@ h2 {
     color: #404040;
     font-weight: 400;
     line-height: 1.4;
+    font-size: 1.8rem;
 }
 
 h3 {
@@ -63,6 +71,12 @@ h3 {
 }
 
 h4 {
+    color: #404040;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+h6 {
     color: #404040;
     font-weight: 400;
     line-height: 1.4;
@@ -94,6 +108,11 @@ p {
 
 .profile-thumb {
     max-width: 200px;
+}
+
+.document-icon {
+    width: 70px;
+    height: 70px;
 }
 
 /* .portfolio-thumb {
@@ -132,7 +151,8 @@ p {
 
 .about-portfolio-card {
     background-color: #fff;
-    width: 100%;
+    width: 420px;
+    min-width: 420px;
     height: 150px;
 }
 
@@ -146,6 +166,7 @@ p {
 
 #calculator {
     background-image: url("images/portfolio/calculator.jpg");
+    background-position: center center;
 }
 
 #scale {
@@ -175,26 +196,6 @@ p {
     top: 155px;
 }
 
-/* #first-image {
-    background-image: url("images/word_guess.jpg");
-}
-
-#second-image {
-    background-image: url("images/rpg.jpg");
-}
-
-#third-image {
-    background-image: url("images/trivia.jpg");
-}
-
-#fourth-image {
-    background-image: url("images/widget.jpg");
-}
-
-#fifth-image {
-    background-image: url("images/rps.jpg");
-} */
-
 
 /*  burger menu  */
 
@@ -210,12 +211,6 @@ p {
     background-color: transparent;
 }
 
-/*.override-padding {
-    padding-top: 1.2rem;
-    padding-right: 1rem;
-    padding-bottom: 1.4rem;
-    padding-left: 1rem;
-}*/
 
 .index-image {
     background-image: url("images/logo_white.svg");
@@ -250,7 +245,7 @@ p {
 /*  footer  */
 
 footer {
-    height: 80px;
+    height: 250px;
     width: 100%;
     text-align: center;
     padding-top: 25px;
@@ -265,17 +260,45 @@ footer {
 .footer-home {
     background-color: transparent;
     border-top: none;
+    height: 100px;
 }
 
-.sticky-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 2;
+.social {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    height: 45px;
+    width: 45px;
+}
+
+#linkedin {
+    background-image: url("images/linkedin.png");
   }
+
+  #twitter {
+    background-image: url("images/twitter.png");
+  }
+
+  #stackoverflow {
+    background-image: url("images/stackoverflow.png");
+  }
+
+  #github {
+    background-image: url("images/github.png");
+  }
+
+
   
 
 /*  media queries  */
+
+@media only screen and (max-width: 992px) {
+
+    .about-portfolio-card {
+display: none;
+    }
+
+}
 
 @media only screen and (max-width: 768px) {
     h1 {
@@ -297,7 +320,6 @@ footer {
         margin: 14px 0 6px 0;
         width: 250px;
     }
-
 
     .credit {
         display: none;
