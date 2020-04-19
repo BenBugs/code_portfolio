@@ -13,4 +13,6 @@ This project was built using:
 - OpenWeather API
 - Luxon date and time library
 
+Link to project - https://benbugs.github.io/code_portfolio/
+
 ![Screen grab of project](code_portfolio.jpg)
