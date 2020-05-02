@@ -40,7 +40,7 @@
     }
 
 .dot {
-        background-image: url("calculator/equals-dot.svg");
+        background-image: url("images-calculator/equals-dot.svg");
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
@@ -56,6 +56,7 @@
 padding-right: 14px;
 font-weight: 300;
 letter-spacing: 0.8px;
+min-height: 24px;
 }
 
 button {
