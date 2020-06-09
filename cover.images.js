@@ -44,13 +44,6 @@ const randomImage = () => {
 $('.body-image').css('background-image', 'url(' + randomImage() + ')');
 
 
-
-
-
-
-
-
-
 //const credit1 = 'Greg Jeanneau';
 //const credit2 = 'Aideal Hwa';
 //const credit3 = 'Aperture Vintage';
