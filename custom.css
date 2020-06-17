@@ -185,6 +185,10 @@ p {
     background-image: url("images/portfolio/burger_thing.jpg");
 }
 
+#lodafones{
+    background-image: url("images/portfolio/lodafones.jpg");
+}
+
 
 .nounderline {
     text-decoration: none !important
