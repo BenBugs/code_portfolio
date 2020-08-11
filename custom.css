@@ -157,37 +157,36 @@ p {
 }
 
 #mixinlab {
-    background-image: url("images/portfolio/mixinlab.jpg");
+    background-image: url("images/portfolio/mixinlab_new.jpg");
 
 }
 
 #weather-dash {
-    background-image: url("images/portfolio/weather_dash.jpg");
+    background-image: url("images/portfolio/weather_dash_new.jpg");
 }
 
 #calculator {
-    background-image: url("images/portfolio/calculator.jpg");
-    background-position: center center;
+    background-image: url("images/portfolio/calculator_new.jpg");
 }
 
 #scale {
-    background-image: url("images/portfolio/scale.jpg");
+    background-image: url("images/portfolio/scale_new.jpg");
 }
 
 #matt-lock{
-    background-image: url("images/portfolio/matt_lock.jpg");
+    background-image: url("images/portfolio/matt_lock_new.jpg");
 }
 
 #boggle{
-    background-image: url("images/portfolio/boggle.jpg");
+    background-image: url("images/portfolio/boggle_new.jpg");
 }
 
 #burger{
-    background-image: url("images/portfolio/burger_thing.jpg");
+    background-image: url("images/portfolio/burger_thing_new.jpg");
 }
 
 #lodafones{
-    background-image: url("images/portfolio/lodafones.jpg");
+    background-image: url("images/portfolio/lodafones_new.jpg");
 }
 
 
